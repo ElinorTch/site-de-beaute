@@ -20,9 +20,12 @@ public class Utilisateur {
     private  String adresseMail;
     private  Long telephone;
     private  String motPasse;
+
+    // Enum value : client, administrator, personnel
+    private String role;
+
     @JsonIgnore
     @OneToMany(mappedBy = "utilisateur")
-    private Set<Commande> commande=new HashSet<>();
-
+    private Set<Commande> commande = new HashSet<>();
 
 }

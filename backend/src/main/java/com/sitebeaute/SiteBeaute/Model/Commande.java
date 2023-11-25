@@ -11,8 +11,9 @@ import java.util.Set;
 public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-     private  Long quantite;
+    private Long id;
+    private Long quantite;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "utilisateur_id", referencedColumnName = "id")
     private Utilisateur utilisateur;
@@ -20,16 +21,16 @@ public class Commande {
     @ManyToMany
     @JoinTable(
             name = "CommandeService",
-            joinColumns = @JoinColumn(name = "commande_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "service_id",referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "commande_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id")
     )
-    private Set<Services> service= new HashSet<>();
+    private Set<Services> service = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
             name = "ProduitCommande",
-            joinColumns = @JoinColumn(name = "commande_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "produit_id",referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "commande_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "produit_id", referencedColumnName = "id")
     )
-     private Set<Produit> produit=new HashSet<>();
+    private Set<Produit> produit = new HashSet<>();
 }

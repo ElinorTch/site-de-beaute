@@ -14,15 +14,8 @@ public class UtilisateurService {
     private UtilisateurRepository utilisateurRepository;
 
     public List<Utilisateur> getutilisateurs() {
-
-        List<Utilisateur> utilisateurs=new ArrayList<>();
-
-         utilisateurRepository.findAll().forEach(utilisateur -> {
-             utilisateurs.add(utilisateur);
-         });
-         return utilisateurs;
+         return utilisateurRepository.findAll();
     }
-
 
     public Utilisateur getutilisateur(Long id) {
        return utilisateurRepository.findById(id).orElse(null);

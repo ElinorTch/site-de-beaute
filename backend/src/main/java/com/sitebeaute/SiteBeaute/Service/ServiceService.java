@@ -13,13 +13,13 @@ import java.util.List;
 public class ServiceService {
     @Autowired
     private ServiceRepository serviceRepository;
-    public List<Services> getservices() {
 
-        List<Services> services=new ArrayList<>();
-        serviceRepository.findAll().forEach(service -> {
-            services.add(service);
-        });
-        return services;
+    public List<Services> getservices() {
+        return serviceRepository.findAll();
+    }
+
+    public void saveService(Services service) {
+        serviceRepository.save(service);
     }
 
     public Services getservice(Long id) {

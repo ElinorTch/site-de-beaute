@@ -18,6 +18,9 @@ public class Produit {
     private String description;
     private Double prix;
 
+    private String sexe;
+    private String image_name;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categorie_id",referencedColumnName = "id")
     private  Categorie categorie;

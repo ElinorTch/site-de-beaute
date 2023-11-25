@@ -18,7 +18,9 @@ public class Services {
     private  String nom;
     private  Double prix;
     private  String description;
-    @Temporal(TemporalType.DATE)
+
+    private String time;
+
     private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL)

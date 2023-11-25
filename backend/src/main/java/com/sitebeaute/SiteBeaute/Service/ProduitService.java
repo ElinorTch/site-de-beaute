@@ -13,15 +13,15 @@ public class ProduitService {
     @Autowired
     private ProduitRepository produitRepository;
     public List<Produit> getproduits() {
-        List<Produit> produits = new ArrayList<>();
-        produitRepository.findAll().forEach(produit -> {
-            produits.add(produit);
-        });
-        return produits;
+        return produitRepository.findAll();
     }
 
     public Produit getproduit(Long id) {
         return produitRepository.findById(id).orElse(null);
+    }
+
+    public void saveProduit(Produit produit) {
+        produitRepository.save(produit);
     }
 
     public void addproduit(Produit produit) {

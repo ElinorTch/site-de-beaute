@@ -21,9 +21,10 @@ public class CommandeController {
     }
 
     @PostMapping("/add")
-    public void saveCommande(@RequestBody Commande commande){
+    public void saveCommande(
+            @RequestBody Commande commande
+    ) {
         commandeService.saveCommande(commande);
-
     }
 
     @DeleteMapping("/delete/{id}")
